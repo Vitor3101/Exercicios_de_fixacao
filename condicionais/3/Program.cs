@@ -6,6 +6,7 @@ namespace _3
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Console.WriteLine("Bem vindo ao Validador de Compras...");
             Console.WriteLine("Digite o nome do Produto");
             string nomeProduto = Console.ReadLine();

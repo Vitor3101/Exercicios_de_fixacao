@@ -6,17 +6,37 @@ namespace _1
     {
         static void Main(string[] args)
         {
-            Console.Clear();
-            int[] nomes = null;
-            Console.WriteLine("Bem vindo ao buscador por nomes em arquivo...");
+            string[] nomes = new string[10];
+            Console.WriteLine("$Bem vindo ao gerenciador de nomes...");
+            Console.WriteLine($"Digite o nome de {nomes.Length} pessoas:");
 
-            for (int i = 0; i <= 10; i++)
+            for (var i = 1; i < nomes.Length; i++)
             {
-                Console.WriteLine($"Digite o {i + 1}º nome que você deseja cadastrar:");
-                nomes[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Digite o {i}ª Nome:");
+                nomes[(i)] = Console.ReadLine();
             }
-            Console.WriteLine("Digite o nome que você deseja procurar: ");
-            Console.WriteLine(nomes[1]);
+
+            Console.WriteLine($"Digite o nome que deseja buscar:");
+            string nomeBusca = Console.ReadLine();
+            int error = 0;
+
+            foreach (var cadaNome in nomes)
+            {
+                {
+                    if (nomeBusca == cadaNome)
+                        error = 1;
+                }
+            }
+
+            if (error == 1)
+            {
+                Console.WriteLine("Nome encontrado");
+            }
+            if (error == 0)
+            {
+                Console.WriteLine("Não encontrado");
+            }
+
         }
     }
 }

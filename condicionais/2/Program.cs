@@ -17,32 +17,32 @@ namespace _2
             double totalSemJuros = 0;
             double total = 0;
 
-            if (combustivel == "a")
-            {
-                if (litros > 20)
+                if (combustivel == "a")
                 {
-                    totalSemJuros = litros * precoAlcool;
-                    total = totalSemJuros * 0.95;
+                    if (litros > 20)
+                    {
+                        totalSemJuros = litros * precoAlcool;
+                        total = totalSemJuros * 0.95;
+                    }
+                    else
+                    {
+                        totalSemJuros = litros * precoAlcool;
+                        total = totalSemJuros * 0.97;
+                    }
                 }
-                else
+                else if (combustivel == "g")
                 {
-                    totalSemJuros = litros * precoAlcool;
-                    total = totalSemJuros * 0.97;
+                    if (litros > 20)
+                    {
+                        totalSemJuros = litros * precoGasolina;
+                        total = totalSemJuros * 0.95;
+                    }
+                    else
+                    {
+                        totalSemJuros = litros * precoGasolina;
+                        total = totalSemJuros * 0.97;
+                    }
                 }
-            }
-            else if (combustivel == "g")
-            {
-                if (litros > 20)
-                {
-                    totalSemJuros = litros * precoGasolina;
-                    total = totalSemJuros * 0.95;
-                }
-                else
-                {
-                    totalSemJuros = litros * precoGasolina;
-                    total = totalSemJuros * 0.97;
-                }
-            }
             if (combustivel == "a")
             {
                 combustivel = "Alcool";
@@ -51,8 +51,8 @@ namespace _2
             {
                 combustivel = "Gasolina";
             }
-
-            Console.WriteLine($"\nO preço total da compra de {combustivel} foi de: \n {totalSemJuros} Reais Sem desconto\n {total} Reais Com desconto ");
+            double valorDoDesconto = totalSemJuros - total;
+            Console.WriteLine($"\nO preço total da compra de {combustivel} foi de: \n {totalSemJuros.ToString("N2")} Reais Sem desconto\n {total.ToString("N2")} Reais Com desconto\n\n Um total economizado de: {valorDoDesconto.ToString("N3")} Reais ");
         }
     }
 }
